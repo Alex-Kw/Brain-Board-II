@@ -38,7 +38,7 @@ GETTING A CARD:
 Sometimes I have completed cards on my eBay store:
 https://www.ebay.com/str/arcadealex
 
-I can also be contacted via AppleFritter Forums or VCF for a DIY kit.
+I can also be contacted via AppleFritter Forums or VCF for a DIY kit, username skate323k137.
 
 MAKING IT YOURSELF (Without a kit from me):
 
