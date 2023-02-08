@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <!-- saved from url=(0035)http://www.willegal.net/appleii.htm -->
+    <title>Brain Board</title>
+    <meta http-equiv="Content-Type" content="text/html;
+      charset=windows-1252">
+  </head>
+  <body>
+    <h1 align="center">The Brain Board with Wozanium Pack</h1>
+    <h1 align="center"><a
+href="file:///Users/mwillega/Documents/personal/web/willegal.net/appleii/Brainboard-assembled.jpg"><img
+          style="border: 0px solid ; width: 800px; height: 554px;"
+          alt="The Brainboard" src="Brainboard-assembled.jpg"
+          hspace="10" width="800" height="554" vspace="10" border="0"></a></h1>
+    <h3>The Brain Board</h3>
+    See my <a href="appleii-fwboard.htm">firmware board page</a> for
+    information on a prototype version of this board.<br>
+    <br>
+    The brain board is a firmware board for your Apple II/Apple II plus
+    or Apple IIe computer. The board uses inexpensive and readily
+    available 27c128 or 27c256 PROMs. Because of the denser PROMs used,
+    6 sockets are replaced with one and the resulting size of the board
+    is reduced to under 3 by 4 inches. The original Apple firmware board
+    was able to replace motherboard ROM functionality with it’s own
+    ROM’s. This allowed an Apple II to have Applesoft in ROM or an Apple
+    II plus to have Integer basic in ROM. A softswitch (flip-flop) is
+    included which allows for switching between the firmware card and
+    motherboard ROMs through software control. The board also includes a
+    little known and seldom used capability that allows multiple
+    firmware cards to coexist in the same system as long as they are in
+    adjacent slots. Firmware cards were normally located in slot 0, but
+    they could be located in any slot.<br>
+    <br>
+    Later on in time, a 16K ram (language) card was developed that had
+    the same functionality, except the appropriate BASIC was loaded into
+    the language card from disk when DOS was booted. The multiple card
+    support was dropped.<br>
+    <br>
+    The base design of the Brain Board includes all the capability of
+    the Applesoft/Integer Basic Firmware ROM board that Apple Computer
+    released around 1978 including:<br>
+    <ul>
+      <li>a switch for enable/disable</li>
+      <li>a software controlled switch (soft switch) for changing
+        between motherboard ROMs</li>
+      <li>firmware board ROMs jumper for enabling monitor ROM F8 - this
+        was a solder pad jumper in the Apple design </li>
+      <li>daisy chain enable functionality via DMA bus connections for
+        multiple card support</li>
+    </ul>
+    In addition, I have added several enhancements in order to maximize
+    usefulness of the board.<br>
+    <ul>
+      <li>The modified design will allow booting a ROM-less motherboard
+        into DOS, which is not possible with the original firmware board
+        27C256 PROMs allow support of two complete ROM images on the
+        Brain Board. Images of both Applesoft and Integer BASIC with
+        matching monitors could be installed and used from the single
+        PROM.</li>
+      <li>An extra soft switch is used to select whether the high or low
+        half of the PROM is in use. This soft switch can be configured
+        by external switch, through software control or by jumper.</li>
+      <li>The Apple II peripheral bus I/O select signal is connected to
+        the lowest 256 bytes of the PROM bank that is currently selected
+        by the bank select flip flop. I/O select is connected to a
+        different address depending upon the slot the board is located
+        in. Slot 0 does not have a I/O select signal, so this feature
+        cannot be used if the Brain Board is installed in slot 0. The
+        starting address for these 256 bytes is computed by multiplying
+        0x100 by the slot number and adding 0xC000. Thus slot 1 is
+        0xC100, slot 2 is 0xC200, etc.<br>
+      </li>
+    </ul>
+    <div style="text-align: center;"><big><br>
+      </big>
+      <h3 style="text-align: left;">Wozanium Pack</h3>
+    </div>
+    The low bank of the PROM provided with the Brain Board optionally
+    includes a special program that will transform your Apple II into a
+    operating facsimile of an original Apple 1 with 16K of expanded
+    memory. This expanded memory was an authentic modification made to a
+    number of original Apple 1s. If the Brain Board is installed in slot
+    1, you will also obtain access to an authentic Apple Cassette
+    Interface (ACI) driver located at address C100, just like the
+    original Apple 1. Input and output to your transformed Apple is now
+    limited to the keyboard, video and cassette interfaces, also just
+    like an original Apple 1. Software in PROM is limited to a ported
+    version of the orignal Apple 1 monitor and the latest known version
+    of Apple 1 BASIC (the so called Huston Basic) which is located at
+    the same address in memory (E000) as it would be located at, in an
+    actual Apple 1.<br>
+    <br>
+    Your transformed Apple will be able to run most original Apple 1
+    assembly and BASIC programs. Programs must either be keyed in
+    through the monitor or loaded via the ACI (Apple Cassette
+    Interface). No other options are standard, though you could add
+    drivers for serial ports or other expansion cards, if you wished to.
+    More details are provided in the manual.<span style="font-weight:
+      bold;"><br>
+      <br>
+    </span>
+    <h3><span style="font-weight: bold;">Example Wozanium Pack - User
+        Driver</span></h3>
+    The Wozanium Pack provides a&nbsp; capability for user device
+    drivers for input and output. &nbsp;Applications that directly
+    access the Apple 1 PIA for keyboard input may or may not access the
+    hooks that are used to enable these drivers depending upon how they
+    are implemented. &nbsp;&nbsp;Here is a simple example driver for the
+    Super Serial Board (slot 2 only). &nbsp;This driver should be loaded
+    into locations 6000. 605B using the cassette interface. &nbsp;Once
+    loaded type 6000R to initialize the driver. &nbsp;Here is an <a
+      href="serial6000.605BR_6000R.aif">AIF encoded version</a> of this
+    driver ready for loading onto your digital music player. &nbsp;<br>
+    <br>
+    <small><small>&nbsp;&nbsp;&nbsp; PROCESSOR 6502<br>
+        &nbsp;&nbsp;&nbsp; LIST&nbsp;&nbsp;&nbsp; ON<br>
+        ACIASTAT EQU&nbsp;&nbsp;&nbsp; $C0A9<br>
+        ACIADATA EQU&nbsp;&nbsp;&nbsp; $C0A8<br>
+        ACIACMD&nbsp;&nbsp;&nbsp; &nbsp;EQU&nbsp;&nbsp;&nbsp; $C0AA<br>
+        ACIACTRL EQU&nbsp;&nbsp;&nbsp; $C0AB<br>
+        <br>
+        READVECTOR EQU&nbsp;&nbsp;&nbsp; $BC02<br>
+        WRITEVECTOR EQU&nbsp;&nbsp;&nbsp; $BC04<br>
+        RETTOMON EQU&nbsp;&nbsp;&nbsp; $FF1F<br>
+        <br>
+        &nbsp;&nbsp;&nbsp; ORG&nbsp;&nbsp;&nbsp; $6000<br>
+        <br>
+        INIT<br>
+        &nbsp;&nbsp;&nbsp; LDA #$2B&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        ;ODD PARITY, NO ECHO, RTS LOW/W NO INT, IRQ DISABLED, DTR LOW<br>
+        &nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;
+        ACIACMD&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ;<br>
+        <br>
+        &nbsp;&nbsp;&nbsp; LDA #$3E&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        ;1 STOP BIT, 7 DATA BITS, 9600 BAUD<br>
+        &nbsp;&nbsp;&nbsp; STA&nbsp;&nbsp;&nbsp;
+        ACIACTRL&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ;<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        ;SAVE OLD VECTORS<br>
+        &nbsp;&nbsp;&nbsp; LDA READVECTOR<br>
+        &nbsp;&nbsp;&nbsp; STA READRET<br>
+        &nbsp;&nbsp;&nbsp; LDA READVECTOR+1<br>
+        &nbsp;&nbsp;&nbsp; STA READRET+1<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        &nbsp;&nbsp;&nbsp; LDA WRITEVECTOR<br>
+        &nbsp;&nbsp;&nbsp; STA WRITERET<br>
+        &nbsp;&nbsp;&nbsp; LDA WRITEVECTOR+1<br>
+        &nbsp;&nbsp;&nbsp; STA WRITERET+1<br>
+        <br>
+        ;OVERWRITE VECTORS WITH NEW FUNCTIONS<br>
+        &nbsp;&nbsp;&nbsp; LDA #&lt;READ<br>
+        &nbsp;&nbsp;&nbsp; STA READVECTOR<br>
+        <br>
+        &nbsp;&nbsp;&nbsp; LDA #&gt;READ<br>
+        &nbsp;&nbsp;&nbsp; STA READVECTOR+1<br>
+        <br>
+        &nbsp;&nbsp;&nbsp; LDA #&lt;WRITE<br>
+        &nbsp;&nbsp;&nbsp; STA WRITEVECTOR<br>
+        <br>
+        &nbsp;&nbsp;&nbsp; LDA #&gt;WRITE<br>
+        &nbsp;&nbsp;&nbsp; STA WRITEVECTOR+1<br>
+        &nbsp;&nbsp;&nbsp; JMP&nbsp;&nbsp;&nbsp; RETTOMON<br>
+        <br>
+        WRITE:<br>
+        &nbsp;&nbsp;&nbsp; PHA&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; ;SAVE BYTE TO WRITE<br>
+        WRITE2:<br>
+        &nbsp;&nbsp;&nbsp; LDA&nbsp;&nbsp;&nbsp;
+        ACIASTAT&nbsp;&nbsp;&nbsp; ;READ STATUS REGISTER<br>
+        &nbsp;&nbsp;&nbsp; AND&nbsp;&nbsp;&nbsp; #$10&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; ;TRANSMIT REGISTER EMPTY?<br>
+        &nbsp;&nbsp;&nbsp; BEQ&nbsp;&nbsp;&nbsp;
+        WRITE2&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ;WAIT FOR EMPTRY<br>
+        &nbsp;&nbsp;&nbsp; PLA&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; ;CHARACTER TO WRITE<br>
+        &nbsp;&nbsp;&nbsp; STA ACIADATA&nbsp;&nbsp;&nbsp; ;WRITE IT<br>
+        ;&nbsp;&nbsp;&nbsp; RTS&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; ; RETURN, WITHOUT DISPLAY<br>
+        &nbsp;&nbsp;&nbsp; JMP (WRITERET)&nbsp;&nbsp;&nbsp; ; RETURN,
+        AND DISPLAY<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        READ2<br>
+        &nbsp;&nbsp;&nbsp; JMP&nbsp;&nbsp;&nbsp;
+        (READRET)&nbsp;&nbsp;&nbsp; ;ALLOW KEYBOARD INPUT TO OCCUR<br>
+        READ<br>
+        &nbsp;&nbsp;&nbsp; LDA ACIASTAT&nbsp;&nbsp;&nbsp; ;READ STATUS
+        REGISTER<br>
+        &nbsp;&nbsp;&nbsp; AND #$08&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        ;READ READISTER FULL<br>
+        &nbsp;&nbsp;&nbsp; BEQ&nbsp;&nbsp;&nbsp; READ2&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; ;NO, WAIT FOR CHAR TO ARRIVE<br>
+        &nbsp;&nbsp;&nbsp; LDA&nbsp;&nbsp;&nbsp;
+        ACIADATA&nbsp;&nbsp;&nbsp; ;FETCH CHARACTER<br>
+        &nbsp;&nbsp;&nbsp; ORA&nbsp;&nbsp;&nbsp; #$80&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; ;SET MS BIT - APPLE 1 ASSUMES THIS<br>
+        READ3<br>
+        &nbsp;&nbsp;&nbsp; RTS&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp; ;RETURN<br>
+        &nbsp;&nbsp;&nbsp; <br>
+        WRITERET DC.W&nbsp;&nbsp;&nbsp; 1<br>
+        READRET&nbsp; DC.W&nbsp;&nbsp;&nbsp; 1</small></small>
+    <h3 style="text-align: left;">Video Demo of the Wozanium Pack</h3>
+    See the&nbsp; first public demo of the "BRAIN BOARD" on my video
+    podcast #24<br>
+    <a href="http://www.willegal.net/feed.xml">http://www.willegal.net/feed.xml</a><br>
+    <br>
+    <h3>Follow My Blog Posts Related to the Brain Board/Wozanium Pack</h3>
+    <a href="http://www.willegal.net/blog/?cat=14">http://www.willegal.net/blog/?cat=14</a><br>
+    <br>
+    <h3 style="text-align: left;">Brain Board with Wozanium Pack
+      Assembly and Operations Guide</h3>
+    Click <a href="bb-v5_3.1.pdf">here</a> to download Version 5.3.1 of
+    the manual in PDF format.<br>
+    <br>
+    <h3 style="text-align: left;">Wozanium Pack Source Code</h3>
+    Build with the 6502 DASM cross assembler.<br>
+    Use the following command line:dasm a2a1emulv5_1.asm -DBLD4ROMBD=0
+    -DHUSTNBASIC=0 -oa2a1rbh.o -la2a1rbh.lst<br>
+    Included in this zip is<br>
+    <ul>
+      <li>a1basic-universal.asm &nbsp;-&nbsp;Apple 1 BASIC modified to
+        run on Brainboard/Wozanium (note copyright at beginning of this
+        file)</li>
+      <li>COPYING.txt - GNU lincense</li>
+      <li>a2a1emulv5_1.asm - Wozanium source code</li>
+      <li>a2a1emulv5_1.lst - Listing</li>
+      <li>a2a1emulv5_1.o - Object file</li>
+      <li>a2a1emulv5_1.rom - 12K rom file that can be used with A2
+        emulators, such as Virtual II.</li>
+    </ul>
+    Click <a href="a2a1emulv5_1.zip">a2a1emulv5_1.zip</a> to download
+    Version 5.1.<br>
+    <br>
+    Also included in this zip package, is a ROM file suitable for
+    emulators, such as Virtual II. This allows you to run and debug
+    Apple 1 software in the Apple II emulator environment. Just select
+    the .ROM file as the ROM for your machine and reset your virtual
+    machine. Just as in the Brain Board, right arrow will clear the
+    screen. &nbsp;Using the emulated cassette interface built into
+    Virtual II, you can download AIF files of A1 basic and assembly
+    language programs and run them in your emulated Apple II. &nbsp;Note
+    that this ROM version does not include the ACI driver at C100, so
+    you must enter the cassette driver by entering “D000R”, instead.<br>
+    <h3>Obtaining Your Own Brain Board Kit</h3>
+    I no longer sell Brain Board kits, but you can get your own boards
+    made with the design files that can be downloaded.&nbsp; I will
+    assume no liability for any use of the files.&nbsp; You are on your
+    own.&nbsp;&nbsp; Do be aware of <a
+      href="http://www.willegal.net/blog/?p=1880">this grounding issue</a>
+    which I never resolved.<br>
+    <a href="brainboard-rcva31.zip">download Gerber Files</a><br>
+    <a href="brainboardva31.osm">download Osmond PCB Fil</a>e<br>
+    <br>
+    <br>
+    <span style="font-weight: bold;"></span>
+    <hr style="width: 100%; height: 2px;"><br>
+    <div align="center"><font size="+2"><font size="+2"><a
+            href="../../index.htm" target="_top">Back to Mike's Hobby
+            Home Page</a> </font></font></div>
+  </body>
+</html>
