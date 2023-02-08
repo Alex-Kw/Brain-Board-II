@@ -3,7 +3,7 @@ Updated "Brain Board" originally designed by Mike Willegal
 
 ![s-l500](https://user-images.githubusercontent.com/20172602/217665056-29c14f80-c498-4fa3-8919-e9a7e37e5e0b.jpeg)
 
-The Brain Board II is a slot card for the Apple II, II+, and IIe computers. 
+The Brain Board II is a slot card for the Apple II, II+, and IIe computers. It allows use of the Wozaniam pack to mimic Apple-1 Operation (including Cassette interface), as well as provides a user ROM area which can be used to boot Integer BASIC among other possibilities. 
 
 The original documentation for the card can be found on Mike Willegal's site: http://www.willegal.net/appleii/brainboard.htm
 
