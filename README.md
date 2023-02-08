@@ -18,6 +18,7 @@ SETTING 1: QUICK START
 
 DIPS:
 1,3,5,8: ON
+
 4,6,7 OFF
 
 In this mode, the back toggle will switch between normal system ROM, and the Wozaniam (apple 1 emulation) mode.
@@ -27,12 +28,11 @@ The updated design to take advantage of this Brain Board II modification uses th
 SETTING 2: APPLESOFT / INTEGER BASIC
 
 1,4,5,7 ON
+
 3,5,6 OFF
 2 - FP/INTEGER
 
-In this mode, the back toggle will still enable Wozaniam when up, but when flipped down, it will boot either Applesoft or Integer BASIC from the Brainboard's ROM depending on the position of DIP2. DIP2 was unused in the original Brainboard design/documentation. 
-
-If you do not need Apple II Integer basic, the first config is most compatible with other expansion cards and accessories. The second config makes the brain board more versatile but may cause conflict with some expansion cards.
+In this mode, the back toggle will still enable Wozaniam when up, but when flipped down, it will boot either Applesoft or Integer BASIC from the Brainboard's ROM depending on the position of DIP2. DIP2 was unused in the original Brainboard design/documentation. If you do not need Apple II Integer basic, the first config is most compatible with other expansion cards and accessories. The second config makes the brain board more versatile but may cause conflict with some expansion cards.
 
 GETTING A CARD:
 Sometimes I have completed cards on my eBay store:
