@@ -18,7 +18,7 @@ Lastly, it is imperative to use a 27C512 or SST 27SF512 with this design in plac
 
 Normal operation is the same if you follow the quick start guide from the original Brain Board manual. bb-v5_1.pdf is provided in this repository, but for convenience, these are the 2 most common settings. 
 
-SETTING 1: QUICK START
+# SETTING 1: QUICK START
 
 DIPS:
 1,3,5,8: ON
@@ -29,7 +29,7 @@ In this mode, the back toggle will switch between normal system ROM, and the Woz
 
 The updated design to take advantage of this Brain Board II modification uses the following configuration:
 
-SETTING 2: APPLESOFT / INTEGER BASIC
+# SETTING 2: APPLESOFT / INTEGER BASIC
 
 1,4,5,7 ON
 
@@ -38,13 +38,13 @@ SETTING 2: APPLESOFT / INTEGER BASIC
 
 In this mode, the back toggle will still enable Wozaniam when up, but when flipped down, it will boot either Applesoft or Integer BASIC from the Brainboard's ROM depending on the position of DIP2. DIP2 was unused in the original Brainboard design/documentation. If you do not need Apple II Integer basic, the first config is most compatible with other expansion cards and accessories. The second config makes the brain board more versatile but may cause conflict with some expansion cards.
 
-GETTING A CARD:
+# GETTING A CARD:
 Sometimes I have completed cards on my eBay store:
 https://www.ebay.com/str/arcadealex
 
 I can also be contacted via AppleFritter Forums or VCF for a DIY kit, username skate323k137.
 
-MAKING IT YOURSELF (Without a kit from me):
+# MAKING IT YOURSELF (Without a kit from me):
 
 The 'Forum Pack' directory has everything you need to get a card manufactured, and to program your ROM presuming you have an EPROM programmer. A TL-866 or TOP-3000 etc is sufficient. Within that directory you will find:
 
