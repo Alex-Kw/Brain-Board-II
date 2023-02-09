@@ -8,9 +8,13 @@ The Brain Board II is a slot card for the Apple II, II+, and IIe computers. It a
 The original documentation for the card can be found on Mike Willegal's site: http://www.willegal.net/appleii/brainboard.htm
 
 The BOM on page BB:3 should be appended from the original design as follows:
+
 Include one more 10K resistor. (5 in total)
+
 The 6 non-polarized capacitors shown on this page should be .1uf, not .01uf. 
+
 Lastly, it is imperative to use a 27C512 or SST 27SF512 with this design in place of the 27c256 EPROM.
+
 
 Normal operation is the same if you follow the quick start guide from the original Brain Board manual. bb-v5_1.pdf is provided in this repository, but for convenience, these are the 2 most common settings. 
 
@@ -50,4 +54,4 @@ BrainBoard_512_Beta_4.zip - Osmond Project, can be opened in the open source pro
 
 CO.512.SuperBrain_Board AppleSoftInteger.BIN - Burn to a 27C512 or SST 27SF512 ROM. Contains the ROM necessary for both of the above configurations (SETTING 1, SETTING 2).
 
-Other files found here are either copies of Mikes original code/design to keep it together under GPL, and the original photos/documentation of the ROM mod by Macnoyd from which this hardware revision was derived. 
+Other files found here are copies of Mikes original code/design to keep it together under GPL, and the original photos/documentation of the ROM mod by Macnoyd from which this hardware revision was derived. 
