@@ -48,9 +48,9 @@ MAKING IT YOURSELF (Without a kit from me):
 
 The 'Forum Pack' directory has everything you need to get a card manufactured, and to program your ROM presuming you have an EPROM programmer. A TL-866 or TOP-3000 etc is sufficient. Within that directory you will find:
 
-Beta_4_gerbers.zip - Can be uploaded directy to PCBWAY to get your own PCBs fabricated. Use their option to bevel the edge connectors, and if they ask you if they can trim a little length from the edge fingers that is fine.
+Beta_4_gerbers.zip - Can be uploaded directy to PCBWAY to get your own PCBs fabricated. Use their option to bevel the edge connectors, and if they ask you if they can trim a little length from the edge fingers that is fine. Alternately I have uploaded the project to their site, and I receive a small commission if you want to purchase unpopulated PCB's via this link: https://www.pcbway.com/project/shareproject/Brain_Board_][_For_Apple_II_computers_d632392b.html
 
-BrainBoard_512_Beta_4.zip - Osmond Project, can be opened in the open source program OSMOND and modified. Delete AUX2 layer after you export Gerbers, AUX1 is board outline. 
+BrainBoard_512_Beta_4.zip - Osmond Project (Free PCB editor software), can be opened in the program OSMOND and modified. Delete AUX2 layer after you export Gerbers, AUX1 is board outline. 
 
 CO.512.SuperBrain_Board AppleSoftInteger.BIN - Burn to a 27C512 or SST 27SF512 ROM. Contains the ROM necessary for both of the above configurations (SETTING 1, SETTING 2).
 
