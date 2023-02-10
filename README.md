@@ -33,8 +33,9 @@ The updated design to take advantage of this Brain Board II modification uses th
 
 1,4,5,7 ON
 
-3,5,6 OFF
-2 - FP/INTEGER
+3,6,8 OFF
+
+2 - Toggle Between FP/INTEGER BASIC (Apple II)
 
 In this mode, the back toggle will still enable Wozaniam when up, but when flipped down, it will boot either Applesoft or Integer BASIC from the Brainboard's ROM depending on the position of DIP2. DIP2 was unused in the original Brainboard design/documentation. If you do not need Apple II Integer basic, the first config is most compatible with other expansion cards and accessories. The second config makes the brain board more versatile but may cause conflict with some expansion cards.
 
