@@ -1,4 +1,4 @@
-# Brain-Board-II
+# Brain Board ][
 Updated "Brain Board" originally designed by Mike Willegal
 
 ![s-l500](https://user-images.githubusercontent.com/20172602/217665056-29c14f80-c498-4fa3-8919-e9a7e37e5e0b.jpeg)
