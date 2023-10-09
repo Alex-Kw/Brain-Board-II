@@ -40,12 +40,12 @@ The updated design to take advantage of this Brain Board II modification uses th
 In this mode, the back toggle will still enable Wozaniam when up, but when flipped down, it will boot either Applesoft or Integer BASIC from the Brainboard's ROM depending on the position of DIP2. DIP2 was unused in the original Brainboard design/documentation. If you do not need Apple II Integer basic, the first config is most compatible with other expansion cards and accessories. The second config makes the brain board more versatile but may cause conflict with some expansion cards.
 
 # GETTING A CARD:
-Sometimes I have completed cards on my eBay store:
+Sometimes I have completed cards on my eBay store, and bare PCB's are always available there:
 https://www.ebay.com/str/arcadealex
 
 I can also be contacted via AppleFritter Forums or VCF for a DIY kit, username skate323k137.
 
-# MAKING IT YOURSELF (Without a kit from me):
+# MAKING IT YOURSELF (Without a kit and/or PCB from me):
 
 **The 'Forum Pack' directory has everything you need to get a card manufactured, and to program your ROM presuming you have an EPROM programmer. A TL-866 or TOP-3000 etc is sufficient. Within that directory you will find:**
 
