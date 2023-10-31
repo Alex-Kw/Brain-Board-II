@@ -25,9 +25,11 @@ DIPS:
 
 4,6,7 OFF
 
-In this mode, the back toggle will switch between normal system ROM, and the Wozaniam (apple 1 emulation) mode.
+DIP2 doesn't matter, the wozaniam pack is in the same relative location in both banks that this DIP controls (in the standard/provided Integer + Applesoft ROM in this repo)
 
-The updated design to take advantage of this Brain Board II modification uses the following configuration:
+In this mode, the back toggle will switch between normal system ROM, and the Wozaniam (apple 1 emulation) mode. 
+
+The updated design to take advantage of this Brain Board II modification / DIP2 uses the following configuration:
 
 # SETTING 2: APPLESOFT / INTEGER BASIC
 
@@ -38,6 +40,8 @@ The updated design to take advantage of this Brain Board II modification uses th
 2 - Toggle Between FP/INTEGER BASIC (Apple II)
 
 In this mode, the back toggle will still enable Wozaniam when up, but when flipped down, it will boot either Applesoft or Integer BASIC from the Brainboard's ROM depending on the position of DIP2. DIP2 was unused in the original Brainboard design/documentation. If you do not need Apple II Integer basic, the first config is most compatible with other expansion cards and accessories. The second config makes the brain board more versatile but may cause conflict with some expansion cards.
+
+In this mode, the system ROMS are entirely on the Brain Board (this is done by inverting switches 3/4 from the previous settings). This means that you should be able to run a board with no onboard ROMs in theory.
 
 # GETTING A CARD:
 Sometimes I have completed cards on my eBay store, and bare PCB's are always available there:
